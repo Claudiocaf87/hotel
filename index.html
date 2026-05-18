@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aclla Sanctuary Lodge · Cusco, Perú</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!--
+    ═══════════════════════════════════════════════════════════
+    GSAP CARGADO AQUÍ — BLOQUEANTE — ANTES DE REACT Y BABEL
+    ═══════════════════════════════════════════════════════════
+    Razón: cuando Babel transpila app-core.jsx y React monta
+    el componente Hero, window.gsap y window.ScrollTrigger ya
+    existen en memoria. Sin esto hay una condición de carrera
+    donde el useEffect de Hero intenta usar GSAP antes de que
+    los scripts dinámicos terminen de cargar.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+          integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+          integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Registrar ScrollTrigger inmediatamente — GSAP ya está en memoria
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --gold: #c5a880;
+      --gold-hover: #d4bc99;
+      --text-primary: #f0ece4;
+      --text-muted: #8a8680;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    body { min-height: 100vh; }
+
+    /* Hide scrollbars on horizontal mobile scrollers */
+    *::-webkit-scrollbar { display: none; }
+
+    /* Date picker icon tint */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.7) sepia(0.5) saturate(2) hue-rotate(5deg);
+      cursor: pointer;
+    }
+
+    @keyframes scrollDot {
+      0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.4; }
+      50%       { transform: scaleY(1);   transform-origin: top; opacity: 1;   }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    ::selection { background: var(--gold); color: var(--bg); }
+
+    /* ── Responsive helpers ── */
+    @media (max-width: 767px) {
+      .hide-mobile  { display: none !important; }
+      .show-mobile  { display: inline-flex !important; }
+      .manifesto-grid  { grid-template-columns: 1fr !important; gap: 3rem !important; }
+      .amenities-grid  { grid-template-columns: 1fr !important; }
+      .footer-grid     { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .booking-strip   { flex-direction: column !important; }
+      .booking-strip label { border-right: none !important; border-bottom: 1px solid rgba(197,168,128,0.35) !important; }
+      .booking-strip .reserve-btn { width: 100%; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .amenities-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+
+    /* ── Boot splash ── */
+    #boot-splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeIn 400ms ease;
+      transition: opacity 600ms ease;
+    }
+    #boot-splash.hide { opacity: 0; pointer-events: none; }
+    #boot-splash .mark {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+    #boot-splash .line {
+      width: 60px; height: 1px; background: var(--gold);
+      margin: 1.25rem auto;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
+      50%       { transform: scaleX(1);   opacity: 1;   }
+    }
+
+    /* ── GSAP pin spacer fix ──
+       GSAP inserta un div.pin-spacer alrededor del elemento pinado.
+       Nos aseguramos de que no agregue margen ni padding no deseado.
+    */
+    .pin-spacer {
+      padding: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="boot-splash">
+    <div style="text-align: center;">
+      <div class="mark">ACLLA</div>
+      <div class="line"></div>
+      <div style="font-family:'Inter',sans-serif;font-size:0.65rem;letter-spacing:0.4em;color:var(--text-muted);text-transform:uppercase;">Sanctuary Lodge</div>
+    </div>
+  </div>
+
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+          integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+          integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+          integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+          crossorigin="anonymous"></script>
+
+  <!-- Translations -->
+  <script src="translations.js"></script>
+
+  <!-- Components (orden importa: core primero) -->
+  <script type="text/babel" data-presets="react" src="app-core.jsx"></script>
+  <script type="text/babel" data-presets="react" src="app-sections-1.jsx"></script>
+  <script type="text/babel" data-presets="react" src="app-sections-2.jsx"></script>
+  <script type="text/babel" data-presets="react" src="app-main.jsx"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const s = document.getElementById("boot-splash");
+        if (s) {
+          s.classList.add("hide");
+          setTimeout(() => s.remove(), 700);
+        }
+      }, 600);
+    });
+  </script>
+
+</body>
+</html>
