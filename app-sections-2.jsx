@@ -367,7 +367,10 @@ function FinalCTA({ lang }) {
           ))}
         </h2>
 
-        <button
+        <a
+          href="https://www.booking.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
@@ -382,10 +385,12 @@ function FinalCTA({ lang }) {
             textTransform: "uppercase",
             cursor: "pointer",
             transition: "background 450ms ease, color 450ms ease",
+            textDecoration: "none",
+            display: "inline-block",
           }}
         >
           {t.button}
-        </button>
+        </a>
 
         <p
           style={{

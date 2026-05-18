@@ -459,31 +459,6 @@ function SuiteRow({ suite, index, total, parallaxRefs }) {
             >
               {suite.data.price}
             </span>
-            <button
-              style={{
-                background: "transparent",
-                border: "1px solid var(--gold)",
-                color: "var(--gold)",
-                padding: "0.9rem 2.25rem",
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 400,
-                fontSize: "0.7rem",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                transition: "background 400ms ease, color 400ms ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--gold)";
-                e.currentTarget.style.color = "var(--bg)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "var(--gold)";
-              }}
-            >
-              {suite.data.cta} →
-            </button>
           </div>
         </div>
       </div>
