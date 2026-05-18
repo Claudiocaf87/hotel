@@ -239,24 +239,23 @@ function TestimonialCard({ it, delay }) {
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        minHeight: "420px",
+        justifyContent: "flex-start",
+        minHeight: "360px",
         transition: `opacity 800ms ease ${delay}ms, transform 800ms cubic-bezier(0.2,0.7,0.2,1) ${delay}ms, border-color 500ms ease`,
       }}
     >
       <span
         aria-hidden="true"
         style={{
-          position: "absolute",
-          top: "0.5rem",
-          left: "1rem",
+          display: "block",
           fontFamily: '"Playfair Display", serif',
           fontWeight: 400,
           fontStyle: "italic",
-          fontSize: "8rem",
+          fontSize: "3.5rem",
           color: "var(--gold)",
-          opacity: 0.15,
-          lineHeight: 1,
+          opacity: 0.5,
+          lineHeight: 0.9,
+          marginBottom: "1rem",
           userSelect: "none",
           pointerEvents: "none",
         }}
@@ -273,14 +272,13 @@ function TestimonialCard({ it, delay }) {
           lineHeight: 1.55,
           color: "var(--text-primary)",
           margin: 0,
-          position: "relative",
-          zIndex: 1,
+          flexGrow: 1,
         }}
       >
         {it.quote}
       </p>
 
-      <div style={{ marginTop: "2rem", borderTop: "1px solid var(--border)", paddingTop: "1.25rem" }}>
+      <div style={{ marginTop: "auto", paddingTop: "1.75rem", borderTop: "1px solid var(--border)" }}>
         <div
           style={{
             fontFamily: "Inter, sans-serif",

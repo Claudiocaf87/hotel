@@ -107,6 +107,28 @@
       }
     }
 
+
+    /* ── Hero video mobile fix ──
+       En mobile el video 16:9 se recorta a formato vertical (portrait).
+       object-position controla qué franja del video queda visible.
+       El valor "50% 35%" muestra la zona levemente arriba del centro
+       donde suelen estar las ruinas y el horizonte en tomas de Cusco.
+       Si necesitás ajustar: subí el % para ver más cielo, bajalo para más primer plano.
+    */
+    @media (max-width: 767px) {
+      #top video {
+        object-position: 50% 35% !important;
+      }
+      /* Reducir el título en mobile para que no tape tanto del video */
+      #top h1 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+      }
+      /* Booking strip más compacto en mobile */
+      #top .booking-strip {
+        margin-top: 1.5rem !important;
+      }
+    }
+
     /* Reduce motion preference */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {

@@ -485,6 +485,10 @@ function Hero({ lang }) {
     <section
       id="top"
       style={{
+        // minHeight en vez de height fija para que en mobile
+        // el contenido (texto + booking strip) no quede aplastado
+        // y el video tenga suficiente área para mostrarse.
+        minHeight: "100vh",
         height: "100vh",
         position: "relative",
         overflow: "hidden",
@@ -529,7 +533,13 @@ function Hero({ lang }) {
           inset: 0,
           width: "100%",
           height: "100%",
-          objectFit: "cover"
+          objectFit: "cover",
+          // objectPosition controla qué parte del video se muestra en mobile.
+          // Con un video 16:9 recortado a pantalla vertical, "50% 35%" ancla
+          // el encuadre un poco arriba del centro — ruinas y horizonte quedan visibles.
+          // Ajustá el % vertical si tu video tiene el sujeto en otro lugar:
+          //   "50% 20%" = más cielo  |  "50% 55%" = más primer plano
+          objectPosition: "50% 35%"
         }} />
       
 
