@@ -65,18 +65,18 @@ window.TRANSLATIONS = {
         },
         {
           tag: "02 / SPA",
-          title: "Ritual Facial",
-          body: "Flores nativas, arcillas volcánicas y manos que conocen el secreto del altiplano.",
+          title: "Masaje de Cuello",
+          body: "Liberación de tensiones cervicales con aceites tibios. La altura abandona los hombros y vuelve la respiración profunda.",
         },
         {
           tag: "03 / MESA",
-          title: "Almuerzo del Valle",
-          body: "Ingredientes de nuestras terrazas. Un chef que escucha a la tierra antes de cocinar.",
+          title: "Buffet del Valle",
+          body: "Mesa abierta al amanecer. Frutas andinas, panes de masa madre, embutidos artesanales y conservas de la cordillera.",
         },
         {
-          tag: "04 / MESA",
-          title: "Cena de Autor",
-          body: "Menú degustación bajo las constelaciones del Apu. Doce pasos, doce silencios.",
+          tag: "04 / BIENESTAR",
+          title: "Jacuzzi al Aire Libre",
+          body: "Aguas tibias frente a los Apus. El vapor se eleva sobre la cordillera mientras el atardecer pinta los nevados de oro.",
         },
         {
           tag: "05 / SPA",
@@ -191,18 +191,18 @@ window.TRANSLATIONS = {
         },
         {
           tag: "02 / SPA",
-          title: "Facial Ritual",
-          body: "Native flowers, volcanic clays and hands that know the altiplano's secret.",
+          title: "Neck Massage",
+          body: "Cervical release with warm oils. Altitude leaves the shoulders and the breath returns deep and slow.",
         },
         {
           tag: "03 / TABLE",
-          title: "Valley Lunch",
-          body: "Ingredients from our terraces. A chef who listens to the earth before cooking.",
+          title: "Valley Buffet",
+          body: "An open table at dawn. Andean fruits, sourdough breads, artisan charcuterie and conserves from the cordillera.",
         },
         {
-          tag: "04 / TABLE",
-          title: "Author's Dinner",
-          body: "Tasting menu under the Apu's constellations. Twelve courses, twelve silences.",
+          tag: "04 / WELLNESS",
+          title: "Open-Air Jacuzzi",
+          body: "Warm waters facing the Apus. Steam rises over the mountains while the sunset gilds the snow-capped peaks.",
         },
         {
           tag: "05 / SPA",
@@ -317,18 +317,18 @@ window.TRANSLATIONS = {
         },
         {
           tag: "02 / SPA",
-          title: "Ritual Facial",
-          body: "Flores nativas, argilas vulcânicas e mãos que conhecem o segredo do altiplano.",
+          title: "Massagem no Pescoço",
+          body: "Liberação cervical com óleos mornos. A altitude deixa os ombros e a respiração volta funda e calma.",
         },
         {
           tag: "03 / MESA",
-          title: "Almoço do Vale",
-          body: "Ingredientes das nossas terraços. Um chef que escuta a terra antes de cozinhar.",
+          title: "Buffet do Vale",
+          body: "Mesa aberta ao amanhecer. Frutas andinas, pães de fermentação natural, charcutaria artesanal e conservas da cordilheira.",
         },
         {
-          tag: "04 / MESA",
-          title: "Jantar de Autor",
-          body: "Menu degustação sob as constelações do Apu. Doze passos, doze silêncios.",
+          tag: "04 / BEM-ESTAR",
+          title: "Jacuzzi ao Ar Livre",
+          body: "Águas mornas em frente aos Apus. O vapor sobe sobre a cordilheira enquanto o pôr do sol pinta os picos nevados de ouro.",
         },
         {
           tag: "05 / SPA",
